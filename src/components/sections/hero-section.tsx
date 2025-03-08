@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -27,11 +28,12 @@ export function HeroSection() {
             </div>
           </div>
           <div className="lg:order-last">
-            <img
-              src="/placeholder.svg?height=550&width=700"
-              alt="Community health education session"
-              className="mx-auto aspect-video w-full overflow-hidden rounded-xl object-cover object-center"
-              style={{ maxWidth: "700px" }}
+            <Image
+              src="/logo.png"
+              alt="A diverse group of people discussing health education"
+              width={800}
+              height={600}
+              layout="responsive"
             />
           </div>
         </div>
