@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export function CalendarSection() {
   return (
@@ -26,10 +27,15 @@ export function CalendarSection() {
             <p className="mb-4 text-sm text-gray-500">
               Want to add our calendar to your own Google Calendar?
             </p>
-            <Button variant="outline" className="inline-flex items-center">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Add to My Calendar
-            </Button>
+            <Link
+              href="https://calendar.google.com/calendar/u/2?cid=cGlua3doaXRlaW5pdGlhdGl2ZUBnbWFpbC5jb20"
+              target="_blank"
+            >
+              <Button variant="outline" className="inline-flex items-center">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Add to My Calendar
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -46,15 +52,13 @@ function GoogleCalendarEmbed({ calendarId }: GoogleCalendarEmbedProps) {
   // The calendarId prop would determine which calendar to show (all, awareness days, or outreach events)
 
   return (
-    <div className="aspect-video w-full overflow-hidden rounded-lg border bg-white shadow-sm">
+    <div className="relative mb-8 w-full">
       <iframe
         src={`https://calendar.google.com/calendar/embed?src=${calendarId}&ctz=local&mode=AGENDA&ss=1&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0`}
         sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-        style={{ border: 0 }}
-        width="100%"
-        height="100%"
-        title="Health Awareness Calendar"
-        className="h-full min-h-[500px] w-full"
+        frameBorder="0"
+        className="min-h-[600px] w-full rounded-lg border shadow-sm md:min-h-[500px] lg:min-h-[700px]"
+        allowFullScreen
       ></iframe>
     </div>
   );
