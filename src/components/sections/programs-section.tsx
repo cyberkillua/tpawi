@@ -79,11 +79,6 @@ function ProgramCard({ title, description, content }: ProgramCardProps) {
       <CardContent>
         <p className="text-sm text-gray-500">{content}</p>
       </CardContent>
-      <CardFooter>
-        <Button variant="outline" className="w-full">
-          Learn More
-        </Button>
-      </CardFooter>
     </Card>
   );
 }

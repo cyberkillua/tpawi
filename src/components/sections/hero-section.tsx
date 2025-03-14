@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -17,13 +18,13 @@ export function HeroSection() {
             </p>
             <div className="flex flex-col gap-2 sm:flex-row">
               <Button className="bg-pink-500 hover:bg-pink-600">
-                Our Programs
+                <Link href="#programs">Our Programs</Link>
               </Button>
               <Button
                 variant="outline"
                 className="border-pink-200 text-pink-500 hover:bg-pink-50"
               >
-                Learn More
+                <Link href={"#about"}>Learn More</Link>
               </Button>
             </div>
           </div>
