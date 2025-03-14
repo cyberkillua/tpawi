@@ -48,7 +48,7 @@ function GoogleCalendarEmbed({ calendarId }: GoogleCalendarEmbedProps) {
   return (
     <div className="aspect-video w-full overflow-hidden rounded-lg border bg-white shadow-sm">
       <iframe
-        src={`https://calendar.google.com/calendar/embed?src=${calendarId}&ctz=local&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0`}
+        src={`https://calendar.google.com/calendar/embed?src=${calendarId}&ctz=local&mode=AGENDA&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0`}
         style={{ border: 0 }}
         width="100%"
         height="100%"
