@@ -17,24 +17,24 @@ export function Footer() {
           <span className="text-xl font-bold">The Pink & White Initiative</span>
         </div>
         <nav className="flex gap-4 md:gap-6">
-          <Link
+          {/* <Link
             href="#"
             className="text-sm font-medium underline-offset-4 hover:underline"
           >
             Privacy Policy
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             href="#"
             className="text-sm font-medium underline-offset-4 hover:underline"
           >
             Terms of Service
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             href="#"
             className="text-sm font-medium underline-offset-4 hover:underline"
           >
             Contact
-          </Link>
+          </Link> */}
         </nav>
         <div className="flex gap-4">
           <Link

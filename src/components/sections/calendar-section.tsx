@@ -11,11 +11,11 @@ export function CalendarSection() {
         <div className="mb-8 flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Health Awareness Calendar
+              Public Health Calendar
             </h2>
             <p className="mx-auto max-w-3xl text-gray-500 md:text-xl lg:text-lg xl:text-xl">
-              Stay informed about important health awareness dates and our
-              upcoming outreach events.
+              Stay informed about important public health dates and our upcoming
+              events.
             </p>
           </div>
         </div>

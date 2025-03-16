@@ -30,7 +30,7 @@ export function HeroSection() {
           </div>
           <div className="lg:order-last">
             <Image
-              src="/logo.png"
+              src="/child.png"
               alt="A diverse group of people discussing health education"
               width={800}
               height={600}
