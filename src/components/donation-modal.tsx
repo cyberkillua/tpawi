@@ -84,13 +84,13 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Account Name
                     </Label>
-                    <p className="font-medium">Surajah Surajudeen-Bakinde</p>
+                    <p className="font-medium">Surajat Surajudeen-Bakinde</p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() =>
-                      copyToClipboard("Surajah Surajudeen-Bakinde", "name")
+                      copyToClipboard("Surajat Surajudeen-Bakinde", "name")
                     }
                     className="h-8 px-2"
                   >
@@ -155,8 +155,10 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
               <p>
                 Please use your name as reference if not specified above. After
                 making your donation, email us at{" "}
-                <span className="font-medium">pinkwhiteinitiative@gmail.com</span> for a
-                receipt.
+                <span className="font-medium">
+                  pinkwhiteinitiative@gmail.com
+                </span>{" "}
+                for a receipt.
               </p>
             </div>
           </TabsContent>
@@ -189,12 +191,12 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Phone Number
                     </Label>
-                    <p className="font-medium">+254 712 345 678</p>
+                    <p className="font-medium">8136535926</p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => copyToClipboard("+254 712 345 678", "phone")}
+                    onClick={() => copyToClipboard("8136535926", "phone")}
                     className="h-8 px-2"
                   >
                     {copied === "phone" ? (
@@ -210,13 +212,16 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Account Name
                     </Label>
-                    <p className="font-medium">Pink & White Initiative</p>
+                    <p className="font-medium">Surajat Surajudeen-Bakinde</p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() =>
-                      copyToClipboard("Pink & White Initiative", "mobile-name")
+                      copyToClipboard(
+                        "Surajat Surajudeen-Bakinde",
+                        "mobile-name",
+                      )
                     }
                     className="h-8 px-2"
                   >
@@ -234,8 +239,10 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
               <p>
                 After making your donation, please send a confirmation
                 screenshot to{" "}
-                <span className="font-medium">pinkwhiteinitiative@gmail.com</span> with
-                your name and contact information.
+                <span className="font-medium">
+                  pinkwhiteinitiative@gmail.com
+                </span>{" "}
+                with your name and contact information.
               </p>
             </div>
           </TabsContent>
