@@ -7,7 +7,6 @@ import { BeneficiariesSection } from "@/components/sections/beneficiaries-sectio
 import { GetInvolvedSection } from "@/components/sections/get-involved-section";
 import { GoalsSection } from "@/components/sections/goals-section";
 import { CalendarSection } from "@/components/sections/calendar-section";
-import { GoogleCalendarEvents } from "@/components/sections/google-calendar-integration";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
         <ProgramsSection />
         <BeneficiariesSection />
         <CalendarSection />
-        {/* <GoogleCalendarEvents  /> */}
         <GetInvolvedSection />
         <GoalsSection />
       </main>
