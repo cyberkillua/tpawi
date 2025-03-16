@@ -105,7 +105,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container mx-auto mt-6 px-4 text-center text-sm text-gray-500 sm:px-6 lg:px-8">
-        <p>© 2024 The Pink & White Initiative. All rights reserved.</p>
+        <p>© 2025 The Pink & White Initiative. All rights reserved.</p>
       </div>
     </footer>
   );
