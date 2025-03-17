@@ -13,6 +13,28 @@ export function BeneficiariesSection() {
             </p>
           </div>
         </div>
+        {/* Image Banner */}
+        <div className="mx-auto my-12 max-w-5xl">
+          <div className="relative h-64 overflow-hidden rounded-xl shadow-lg md:h-80">
+            <img
+              src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+              alt="Diverse community members"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center bg-gradient-to-r from-pink-500/70 to-transparent">
+              <div className="max-w-md p-8 text-white">
+                <h3 className="mb-2 text-2xl font-bold">
+                  Reaching Those in Need
+                </h3>
+                <p>
+                  Our programs are designed to reach individuals across all
+                  demographics, with special attention to those facing the
+                  greatest barriers to health education and resources.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
           <BeneficiaryCard
             label="9-17"

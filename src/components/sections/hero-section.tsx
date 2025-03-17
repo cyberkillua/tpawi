@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-6 lg:grid-cols-2">
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-4xl">
               Empowering Communities Through Health Education
             </h1>
             <p className="text-gray-500 md:text-xl lg:text-lg xl:text-xl">
@@ -31,10 +31,11 @@ export function HeroSection() {
           <div className="lg:order-last">
             <Image
               src="/child.png"
-              alt="A diverse group of people discussing health education"
-              width={800}
-              height={600}
-              layout="responsive"
+              alt="Community health education session with women and children"
+              width={700} // Set the width of the image
+              height={400} // Set the height of the image (adjust as needed)
+              className="mx-auto aspect-video w-full overflow-hidden rounded-xl object-cover object-center shadow-md"
+              style={{ maxWidth: "700px" }}
             />
           </div>
         </div>
