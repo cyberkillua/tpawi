@@ -27,19 +27,6 @@ export function GetInvolvedSection() {
         </div>
 
         <div className="mx-auto max-w-5xl">
-          <div className="mb-8 space-y-4">
-            <InvolvementStep number={1} text="Donate to support our programs" />
-            <InvolvementStep number={2} text="Volunteer your time and skills" />
-            <InvolvementStep
-              number={3}
-              text="Partner with us as an organization"
-            />
-            <InvolvementStep
-              number={4}
-              text="Spread awareness about our cause"
-            />
-          </div>
-
           <div className="overflow-hidden rounded-lg bg-white shadow-lg">
             <Tabs
               defaultValue="contact"
