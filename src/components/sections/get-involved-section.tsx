@@ -125,7 +125,7 @@ export function GetInvolvedSection() {
                 {/* Google Form Embed */}
                 <div className="h-[600px] w-full overflow-hidden rounded-md border border-gray-200">
                   <iframe
-                    src="https://forms.gle/XEBadXaLn4qju6vo9"
+                    src="https://forms.gle/StBMkRGJwXNGUH5V6"
                     width="100%"
                     height="100%"
                     frameBorder="0"
