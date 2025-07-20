@@ -46,17 +46,17 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
 
         <Tabs defaultValue="bank" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="bank" className="flex items-center gap-1">
+            {/* <TabsTrigger value="bank" className="flex items-center gap-1">
               <Landmark className="h-4 w-4" />
               <span className="hidden sm:inline">Bank Transfer</span>
-            </TabsTrigger>
+            </TabsTrigger> */}
             <TabsTrigger value="mobile" className="flex items-center gap-1">
               <DollarSign className="h-4 w-4" />
               <span className="hidden sm:inline">Mobile Money</span>
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="bank" className="mt-4 space-y-4">
+          {/* <TabsContent value="bank" className="mt-4 space-y-4">
             <div className="space-y-2">
               <h3 className="text-sm font-medium">Bank Account Details</h3>
               <div className="space-y-3 rounded-md border p-4">
@@ -161,7 +161,7 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                 for a receipt.
               </p>
             </div>
-          </TabsContent>
+          </TabsContent> */}
 
           <TabsContent value="mobile" className="mt-4 space-y-4">
             <div className="space-y-2">
@@ -191,7 +191,7 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Phone Number
                     </Label>
-                    <p className="font-medium">8136535926</p>
+                    <p className="font-medium">9066303344</p>
                   </div>
                   <Button
                     variant="ghost"
@@ -212,7 +212,7 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Account Name
                     </Label>
-                    <p className="font-medium">Surajat Surajudeen-Bakinde</p>
+                    <p className="font-medium">Surajah Surajudeen-Bakinde</p>
                   </div>
                   <Button
                     variant="ghost"
