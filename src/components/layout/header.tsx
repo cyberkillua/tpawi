@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+
 import { Heart, Menu } from "lucide-react";
 import { DonationModal } from "@/components/donation-modal";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -53,12 +54,6 @@ export function Header() {
             >
               Get Involved
             </Link>
-            <Link
-              href="#contact"
-              className="text-sm font-medium underline-offset-4 hover:underline"
-            >
-              Contact
-            </Link>
           </nav>
 
           {/* Donate Button */}
@@ -94,9 +89,6 @@ export function Header() {
                   </Link>
                   <Link href="#get-involved" className="text-lg font-medium">
                     Get Involved
-                  </Link>
-                  <Link href="#contact" className="text-lg font-medium">
-                    Contact
                   </Link>
                 </div>
               </SheetContent>
