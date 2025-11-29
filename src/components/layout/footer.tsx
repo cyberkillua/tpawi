@@ -130,6 +130,20 @@ export function Footer() {
               <path d="M22.46 5.924c-.793.352-1.646.59-2.542.698a4.48 4.48 0 0 0 1.965-2.475 8.94 8.94 0 0 1-2.828 1.082 4.48 4.48 0 0 0-7.635 4.085A12.72 12.72 0 0 1 3.112 4.89a4.48 4.48 0 0 0 1.387 5.976 4.45 4.45 0 0 1-2.03-.561v.057a4.48 4.48 0 0 0 3.593 4.393c-.4.11-.822.17-1.258.17-.308 0-.603-.03-.893-.085a4.48 4.48 0 0 0 4.184 3.112A8.98 8.98 0 0 1 2 19.54a12.67 12.67 0 0 0 6.88 2.017c8.253 0 12.77-6.835 12.77-12.77 0-.195-.004-.39-.013-.583A9.14 9.14 0 0 0 24 4.59a8.93 8.93 0 0 1-2.54.697z" />
             </svg>
           </Link>
+          <Link
+            href="https://substack.com/@tpawi?r=5gvqcq&utm_medium=ios&utm_source=profile"
+            className="text-gray-500 hover:text-gray-900"
+            target="_blank"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+            </svg>
+          </Link>
         </div>
       </div>
       <div className="container mx-auto mt-6 px-4 text-center text-sm text-gray-500 sm:px-6 lg:px-8">

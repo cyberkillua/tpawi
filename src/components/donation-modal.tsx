@@ -170,12 +170,12 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label className="text-xs text-gray-500">Provider</Label>
-                    <p className="font-medium">Opay</p>
+                    <p className="font-medium">Moniepoint MFB</p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => copyToClipboard("Opay", "provider")}
+                    onClick={() => copyToClipboard("Moniepoint MFB", "provider")}
                     className="h-8 px-2"
                   >
                     {copied === "provider" ? (
@@ -189,14 +189,14 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label className="text-xs text-gray-500">
-                      Phone Number
+                      Account Number
                     </Label>
                     <p className="font-medium">9066303344</p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => copyToClipboard("8136535926", "phone")}
+                    onClick={() => copyToClipboard("9066303344", "phone")}
                     className="h-8 px-2"
                   >
                     {copied === "phone" ? (
@@ -212,14 +212,16 @@ export function DonationModal({ open, onOpenChange }: DonationModalProps) {
                     <Label className="text-xs text-gray-500">
                       Account Name
                     </Label>
-                    <p className="font-medium">Surajah Surajudeen-Bakinde</p>
+                    <p className="font-medium">
+                      The Pink - White Empowerment Initiative - (TPAWI)
+                    </p>
                   </div>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() =>
                       copyToClipboard(
-                        "Surajat Surajudeen-Bakinde",
+                        "The Pink - White Empowerment Initiative - (TPAWI)",
                         "mobile-name",
                       )
                     }
