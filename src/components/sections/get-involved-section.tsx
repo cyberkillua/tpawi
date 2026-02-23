@@ -3,9 +3,68 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Crown, Users, Star, Award, ExternalLink, Check } from "lucide-react";
+import Link from "next/link";
+
+const MEMBERSHIP_FORM_URL = "https://forms.gle/RTzfri36EtSvHmxdA";
+
+const membershipTiers = [
+  {
+    name: "Pink Pal",
+    icon: Users,
+    price: "\u20A62,000/mo or \u20A620,000/yr",
+    description: "Entry-level membership",
+    benefits: [
+      "Member badge",
+      "Annual recognition",
+      "Priority event registration",
+      "25% event discounts",
+      "Membership welcome pack",
+    ],
+  },
+  {
+    name: "Pink Ally",
+    icon: Star,
+    price: "\u20A65,000/mo or \u20A650,000/yr",
+    description: "Mid-tier membership",
+    benefits: [
+      "All Pink Pal benefits",
+      "Issue suggestions",
+      "50% event discounts",
+      "Membership pack: Pens + Stickers + Key holder.  ",
+    ],
+  },
+  {
+    name: "Pink Partner",
+    icon: Crown,
+    price: "\u20A610,000/mo or \u20A6100,000/yr",
+    description: "Premium membership",
+    benefits: [
+      "All Pink Ally benefits",
+      "Strategy input",
+      "Structured feedback",
+      "Free event access",
+      "Membership pack: Car bumper sticker + Key chain + Pens + Water bottle ",
+    ],
+  },
+  {
+    name: "Pink Advocate",
+    icon: Award,
+    price: "\u20A650,000/mo or \u20A6500,000/yr",
+    description: "Highest tier membership",
+    benefits: [
+      "All Pink Partner benefits",
+      "Micro-gathering hosting",
+      "Monthly financial transparency",
+      "Two free event passes",
+      "Membership pack: Car bumper sticker + Stickers + Key chain + Pens + Water bottle + Folder + Notebook",
+    ],
+  },
+];
 
 export function GetInvolvedSection() {
-  const [activeTab, setActiveTab] = useState("contact");
+  const [activeTab, setActiveTab] = useState("membership");
 
   return (
     <section
@@ -29,11 +88,17 @@ export function GetInvolvedSection() {
         <div className="mx-auto max-w-5xl">
           <div className="overflow-hidden rounded-lg bg-white shadow-lg">
             <Tabs
-              defaultValue="contact"
+              defaultValue="membership"
               className="w-full"
               onValueChange={setActiveTab}
             >
-              <TabsList className="grid w-full grid-cols-2 bg-pink-100">
+              <TabsList className="grid w-full grid-cols-3 bg-pink-100">
+                <TabsTrigger
+                  value="membership"
+                  className="data-[state=active]:bg-white"
+                >
+                  Membership
+                </TabsTrigger>
                 <TabsTrigger
                   value="contact"
                   className="data-[state=active]:bg-white"
@@ -44,9 +109,80 @@ export function GetInvolvedSection() {
                   value="volunteer"
                   className="data-[state=active]:bg-white"
                 >
-                  Volunteer Signup
+                  Volunteer
                 </TabsTrigger>
               </TabsList>
+
+              <TabsContent value="membership" className="p-6 text-gray-900">
+                <h3 className="mb-4 text-2xl font-bold text-pink-500">
+                  Become a Member
+                </h3>
+                <p className="mb-6 text-gray-600">
+                  Join The Pink & White Initiative as a member and support our
+                  mission to improve health literacy. Choose the membership tier
+                  that works best for you.
+                </p>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {membershipTiers.map((tier) => {
+                    const IconComponent = tier.icon;
+                    return (
+                      <Card
+                        key={tier.name}
+                        className="relative overflow-hidden"
+                      >
+                        <CardHeader className="pb-3">
+                          <div className="mb-2 flex items-center gap-2">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-100">
+                              <IconComponent className="h-5 w-5 text-pink-500" />
+                            </div>
+                            <CardTitle className="text-lg">
+                              {tier.name}
+                            </CardTitle>
+                          </div>
+                          <div className="inline-block rounded-lg bg-pink-100 px-3 py-1 text-sm text-pink-500">
+                            {tier.price}
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            {tier.benefits.map((benefit, index) => (
+                              <li
+                                key={index}
+                                className="flex items-start gap-2 text-sm text-gray-600"
+                              >
+                                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-pink-500" />
+                                <span>{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-6">
+                  <Link
+                    href={MEMBERSHIP_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="w-full bg-pink-500 text-white hover:bg-pink-600">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Subscribe to a Membership Plan
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="mt-4 rounded-md bg-pink-50 p-4">
+                  <p className="text-sm text-gray-600">
+                    Clicking the button above will open the membership
+                    subscription form in a new tab. You can select your
+                    preferred tier and complete your registration there.
+                  </p>
+                </div>
+              </TabsContent>
 
               <TabsContent value="contact" className="p-6 text-gray-900">
                 <h3 className="mb-4 text-2xl font-bold text-pink-500">
@@ -137,21 +273,5 @@ export function GetInvolvedSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-interface InvolvementStepProps {
-  number: number;
-  text: string;
-}
-
-function InvolvementStep({ number, text }: InvolvementStepProps) {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-pink-500">
-        {number}
-      </div>
-      <p className="font-medium">{text}</p>
-    </div>
   );
 }
