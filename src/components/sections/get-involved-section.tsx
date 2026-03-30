@@ -71,7 +71,7 @@ export function GetInvolvedSection() {
               className="w-full"
               onValueChange={setActiveTab}
             >
-              <TabsList className="grid w-full grid-cols-3 bg-pink-100">
+              <TabsList className="grid w-full grid-cols-4 bg-pink-100">
                 <TabsTrigger
                   value="membership"
                   className="data-[state=active]:bg-white"
@@ -89,6 +89,12 @@ export function GetInvolvedSection() {
                   className="data-[state=active]:bg-white"
                 >
                   Volunteer
+                </TabsTrigger>
+                <TabsTrigger
+                  value="research"
+                  className="data-[state=active]:bg-white"
+                >
+                  Research Team
                 </TabsTrigger>
               </TabsList>
 
@@ -274,6 +280,41 @@ export function GetInvolvedSection() {
                     After submitting the form, our volunteer coordinator will
                     contact you within 3-5 business days to discuss next steps
                     and available opportunities.
+                  </p>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="research" className="p-6 text-gray-900">
+                <h3 className="mb-4 text-2xl font-bold text-pink-500">
+                  Research Team Signup
+                </h3>
+                <p className="mb-6 text-gray-600">
+                  Join our research team and contribute to meaningful studies
+                  that improve health literacy and community well-being.
+                  We&apos;re looking for dedicated individuals passionate about
+                  making a difference through research.
+                </p>
+
+                {/* Research Team Form Embed */}
+                <div className="h-[600px] w-full overflow-hidden rounded-md border border-gray-200">
+                  <iframe
+                    src="https://8d85c339.sibforms.com/serve/MUIFALdH6gq9NYjg91rAUR4kK6454HBrHrfS204Cl3Rw_95Y89hnaK1o7x3HoMTtmvIXqMtE5ucw2JN62ksMJ7cN4aLWGUnFH28SkbrHjkND5aptNXzmd4a4kKiCuyAssgbyK-AZ36f4zSM3H-AbOD2Rt1r0vF22uS0Z8J3TUdpTx_B5xjo0Z_-A5xVgg5EGtNRxUFSppg-jdQZgqg=="
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="Research Team Signup Form"
+                  >
+                    Loading form...
+                  </iframe>
+                </div>
+
+                <div className="mt-4 rounded-md bg-pink-50 p-4">
+                  <p className="text-sm text-gray-600">
+                    After submitting the form, our research coordinator will
+                    contact you within 3-5 business days to discuss research
+                    opportunities and next steps.
                   </p>
                 </div>
               </TabsContent>
