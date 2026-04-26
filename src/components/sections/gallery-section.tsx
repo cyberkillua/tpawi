@@ -12,6 +12,7 @@ type Item = {
   title: string;
   src: string;
   type: "image" | "video";
+  poster?: string;
   span?: "tall" | "wide" | "big";
 };
 
@@ -21,7 +22,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "World Malaria Day Outreach — Lagos",
-    src: "/gallery/IMG_4153.jpg",
+    src: "/optimized/gallery/IMG_4153.webp",
     type: "image",
     span: "big",
   },
@@ -30,7 +31,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2025",
     title: "Listening session, Lagos",
-    src: "/gallery/IMG_3882.jpg",
+    src: "/optimized/gallery/IMG_3882.webp",
     type: "image",
     span: "tall",
   },
@@ -39,7 +40,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Distribution day — community visit",
-    src: "/gallery/IMG_4184.jpg",
+    src: "/optimized/gallery/IMG_4184.webp",
     type: "image",
   },
   {
@@ -47,7 +48,8 @@ const ITEMS: Item[] = [
     cat: "video",
     tag: "Video · field recap",
     title: "Outreach moments on the ground",
-    src: "/gallery/vid_1487.mov",
+    src: "/optimized/gallery/video/vid_1487.m4v",
+    poster: "/optimized/gallery/IMG_4153.webp",
     type: "video",
   },
   {
@@ -55,7 +57,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2025",
     title: "School visit — pad bank session",
-    src: "/gallery/IMG_4248.jpg",
+    src: "/optimized/gallery/IMG_4248.webp",
     type: "image",
     span: "wide",
   },
@@ -64,7 +66,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Mobile clinic — registration",
-    src: "/gallery/IMG_9110.jpg",
+    src: "/optimized/gallery/IMG_9110.webp",
     type: "image",
   },
   {
@@ -72,7 +74,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2024",
     title: "Community Q&A — Lagos",
-    src: "/gallery/IMG_9111.jpg",
+    src: "/optimized/gallery/IMG_9111.webp",
     type: "image",
   },
   {
@@ -80,7 +82,8 @@ const ITEMS: Item[] = [
     cat: "video",
     tag: "Video · volunteer day",
     title: "Volunteer day recap",
-    src: "/gallery/vid_3879.mov",
+    src: "/optimized/gallery/video/vid_3879.m4v",
+    poster: "/optimized/gallery/IMG_3882.webp",
     type: "video",
     span: "tall",
   },
@@ -89,7 +92,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Distribution day — neighborhood",
-    src: "/gallery/IMG_9189.jpg",
+    src: "/optimized/gallery/IMG_9189.webp",
     type: "image",
   },
   {
@@ -97,7 +100,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2025",
     title: "Partner roundtable — Lagos",
-    src: "/gallery/IMG_9197.jpg",
+    src: "/optimized/gallery/IMG_9197.webp",
     type: "image",
     span: "wide",
   },
@@ -106,7 +109,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Field outreach — Lagos community",
-    src: "/gallery/IMG_4249.jpg",
+    src: "/optimized/gallery/IMG_4249.webp",
     type: "image",
   },
   {
@@ -114,7 +117,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2024",
     title: "Education session — schoolgirls",
-    src: "/gallery/IMG_9198.jpg",
+    src: "/optimized/gallery/IMG_9198.webp",
     type: "image",
   },
   {
@@ -122,7 +125,8 @@ const ITEMS: Item[] = [
     cat: "video",
     tag: "Video · workshop",
     title: "School workshop — moments",
-    src: "/gallery/vid_1497.mov",
+    src: "/optimized/gallery/video/vid_1497.m4v",
+    poster: "/optimized/gallery/IMG_4248.webp",
     type: "video",
   },
   {
@@ -130,7 +134,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Group outreach — community",
-    src: "/gallery/IMG_9207.jpg",
+    src: "/optimized/gallery/IMG_9207.webp",
     type: "image",
   },
   {
@@ -138,7 +142,7 @@ const ITEMS: Item[] = [
     cat: "workshop",
     tag: "Workshop · 2025",
     title: "Health literacy session",
-    src: "/gallery/IMG_1539.jpg",
+    src: "/optimized/gallery/IMG_1539.webp",
     type: "image",
   },
   {
@@ -146,7 +150,8 @@ const ITEMS: Item[] = [
     cat: "video",
     tag: "Video · outreach",
     title: "Outreach in motion",
-    src: "/gallery/vid_3896.mov",
+    src: "/optimized/gallery/video/vid_3896.m4v",
+    poster: "/optimized/gallery/IMG_9207.webp",
     type: "video",
   },
   {
@@ -154,7 +159,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Market outreach — antimalarial campaign",
-    src: "/gallery/IMG_1992.jpg",
+    src: "/optimized/gallery/IMG_1992.webp",
     type: "image",
     span: "wide",
   },
@@ -163,7 +168,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Volunteer at the field — pink kit",
-    src: "/gallery/IMG_1616.jpg",
+    src: "/optimized/gallery/IMG_1616.webp",
     type: "image",
     span: "tall",
   },
@@ -172,7 +177,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "World Malaria Day — group at the market",
-    src: "/gallery/wa_01.jpg",
+    src: "/optimized/gallery/wa_01.webp",
     type: "image",
     span: "wide",
   },
@@ -181,7 +186,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "“I finish my antimalarials” — community pledge",
-    src: "/gallery/wa_02.jpg",
+    src: "/optimized/gallery/wa_02.webp",
     type: "image",
   },
   {
@@ -189,7 +194,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Mosquito net distribution",
-    src: "/gallery/wa_03.jpg",
+    src: "/optimized/gallery/wa_03.webp",
     type: "image",
   },
   {
@@ -197,7 +202,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Volunteer with a market trader",
-    src: "/gallery/wa_04.jpg",
+    src: "/optimized/gallery/wa_04.webp",
     type: "image",
   },
   {
@@ -205,7 +210,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Conversation at the stall",
-    src: "/gallery/wa_05.jpg",
+    src: "/optimized/gallery/wa_05.webp",
     type: "image",
   },
   {
@@ -213,7 +218,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Family receiving outreach materials",
-    src: "/gallery/wa_06.jpg",
+    src: "/optimized/gallery/wa_06.webp",
     type: "image",
     span: "tall",
   },
@@ -222,7 +227,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Volunteer portrait — market outreach",
-    src: "/gallery/wa_07.jpg",
+    src: "/optimized/gallery/wa_07.webp",
     type: "image",
   },
   {
@@ -230,7 +235,7 @@ const ITEMS: Item[] = [
     cat: "outreach",
     tag: "Outreach · 2025",
     title: "Community member with antimalarial pledge",
-    src: "/gallery/wa_08.jpg",
+    src: "/optimized/gallery/wa_08.webp",
     type: "image",
   },
 ];
@@ -323,10 +328,11 @@ export function GallerySection() {
               ) : (
                 <video
                   src={item.src}
+                  poster={item.poster}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
                   muted
                   playsInline
-                  preload="metadata"
+                  preload="none"
                 />
               )}
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 bg-gradient-to-t from-black/75 to-transparent p-[18px] text-left text-white">
@@ -357,9 +363,13 @@ export function GallerySection() {
         </div>
 
         <div className="mt-10 text-center">
-          <a href="#events" className="btn btn-ghost-light">
+          <button
+            type="button"
+            onClick={() => setFilter("all")}
+            className="btn btn-ghost-light"
+          >
             View full archive
-          </a>
+          </button>
         </div>
       </div>
 
@@ -385,6 +395,7 @@ export function GallerySection() {
             ) : (
               <video
                 src={open.src}
+                poster={open.poster}
                 className="absolute inset-0 h-full w-full object-cover"
                 controls
                 autoPlay

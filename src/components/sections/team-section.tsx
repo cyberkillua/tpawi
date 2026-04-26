@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Member = {
   name: string;
   role: string;
@@ -10,25 +12,25 @@ const TEAM: Member[] = [
     name: "Faizah Alayo",
     role: "Head of Research",
     bio: "Pharmacist. Researcher.",
-    image: "/team/faizah.JPG",
+    image: "/optimized/team/faizah.webp",
   },
   {
     name: "Moshood Alimi",
     role: "Head of Software, AI/ML",
     bio: "Software Engineer. AI/ML Consultant.",
-    image: "/team/mosh.JPEG",
+    image: "/optimized/team/mosh.webp",
   },
   {
     name: "Haneefah Akolawole",
     role: "Head of Content",
     bio: "PharmD in view.",
-    image: "/team/hanifah.jpg",
+    image: "/optimized/team/hanifah.webp",
   },
   {
     name: "Sarat Jimoh",
     role: "Volunteer Coordinator",
     bio: "PharmD in view.",
-    image: "/team/sarat.jpeg",
+    image: "/optimized/team/sarat.webp",
   },
 ];
 
@@ -51,9 +53,11 @@ export function TeamSection() {
         {/* Founder feature */}
         <div className="mb-20 grid items-center gap-[clamp(30px,5vw,70px)] min-[880px]:grid-cols-[1.05fr_1fr]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[4px]">
-            <img
-              src="/team/suu.jpg"
+            <Image
+              src="/optimized/team/suu.webp"
               alt="Surajah Surajudeen-Bakinde, Founder & Executive Director"
+              fill
+              sizes="(max-width: 880px) 100vw, 48vw"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="mono absolute left-5 top-5 rounded-full bg-paper px-3.5 py-2 text-[0.65rem] uppercase tracking-[0.16em]">
@@ -97,9 +101,11 @@ export function TeamSection() {
             <div key={m.name} className="flex flex-col">
               <div className="relative mb-[18px] aspect-[4/5] overflow-hidden rounded-[3px] bg-paper-2">
                 {m.image ? (
-                  <img
+                  <Image
                     src={m.image}
                     alt={m.name}
+                    fill
+                    sizes="(max-width: 540px) 100vw, (max-width: 1000px) 50vw, 25vw"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 ) : (

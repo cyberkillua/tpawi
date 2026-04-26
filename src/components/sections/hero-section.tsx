@@ -43,7 +43,7 @@ export function HeroSection() {
 
         <div className="relative aspect-[4/5] overflow-hidden rounded-[4px]">
           <Image
-            src="/front-page.svg"
+            src="/optimized/hero/front-page.webp"
             alt="TPAWI front page illustration"
             fill
             className="object-cover"
