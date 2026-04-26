@@ -1,69 +1,121 @@
+type Item = string | { text: string; sub: string[] };
+
+const HORIZONS: {
+  key: "now" | "mid" | "long";
+  title: string;
+  year: string;
+  items: Item[];
+}[] = [
+  {
+    key: "now",
+    title: "Now & near",
+    year: "1–2 years",
+    items: [
+      "Reach 250,000 people a year through digital health literacy campaigns.",
+      "Pad banks and school health programmes in 15 schools and community hubs.",
+      "Operationalise the TPAWI Research Team and pilot the MHL Index.",
+      "Build partnerships with 5+ schools, NGOs, PHCs, and media platforms.",
+    ],
+  },
+  {
+    key: "mid",
+    title: "Mid-horizon",
+    year: "3–5 years",
+    items: [
+      "Reach 500,000 people a year across digital and community campaigns.",
+      "Scale pad banks and school programmes to 30 schools.",
+      "Publish the first national MHL Index report.",
+      "Open formal advocacy with ministries, PHC boards, and legislators.",
+    ],
+  },
+  {
+    key: "long",
+    title: "Long-horizon",
+    year: "5–10 years",
+    items: [
+      "Reach 5 million+ people — Nigeria’s leading youth-driven health literacy platform.",
+      "Pad banks and sustained programmes across 100 schools and community centres.",
+      "Establish the MHL Index as a national research and policy instrument.",
+      "Win reforms: tax-free menstrual products and stronger health education in schools.",
+    ],
+  },
+];
+
 export function GoalsSection() {
   return (
-    <section id="impact" className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Our Goals
-            </h2>
-            <p className="mx-auto max-w-3xl text-gray-500 md:text-xl lg:text-lg xl:text-xl">
-              Setting ambitious targets to create meaningful change in
-              communities.
-            </p>
-          </div>
+    <section
+      id="roadmap"
+      className="section-pad relative overflow-hidden bg-paper-2"
+    >
+      <div className="wrap">
+        <div className="mb-[60px] max-w-[42ch]">
+          <span className="eyebrow">The horizon</span>
+          <h2 className="mt-4">A ten-year plan, paced honestly.</h2>
+          <p className="mt-4 text-ink-soft">
+            We measure ourselves by what changes in a girl&apos;s life, not by
+            the size of the headline. Here&apos;s what we&apos;re committing to.
+          </p>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-3">
-          <GoalCard
-            title="Short-Term (1-2 Years)"
-            goals={[
-              "Establish pad banks in 30 communities.",
-              "Launch the first round of health literacy campaigns and workshops.",
-              "Implement school health programs in 10 schools.",
-              "Develop partnerships with 5 strategic organisations.",
-            ]}
-          />
-          <GoalCard
-            title="Medium-Term (3-5 Years)"
-            goals={[
-              "Expand pad banks to 50 communities.",
-              "Reach 100,000 students with school health programs.",
-              "Launch mobile health clinics in 10 rural areas.",
-              "Conduct advocacy meetings with key policymakers.",
-              "Solidify long-term partnerships with NGOs and government agencies.",
-            ]}
-          />
-          <GoalCard
-            title="Long-Term (5-10 Years)"
-            goals={[
-              "Ensure sustainable access to menstrual hygiene products across all targeted communities.",
-              "Scale health literacy campaigns to reach millions of women and girls nationwide.",
-              "Achieve policy changes, such as tax-free menstrual products and comprehensive health education in schools.",
-            ]}
-          />
+
+        <div className="grid grid-cols-3 gap-6 max-[880px]:grid-cols-1">
+          {HORIZONS.map((h) => {
+            const isNow = h.key === "now";
+            return (
+              <div
+                key={h.key}
+                className={`relative flex flex-col gap-5 rounded-[4px] border bg-paper p-8 ${
+                  isNow ? "border-pink-300" : "border-line"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-5 border-b border-line pb-5">
+                  <div className="serif text-[1.4rem] leading-[1.2]">
+                    {h.title}
+                  </div>
+                  <div
+                    className={`mono flex-shrink-0 text-[0.7rem] uppercase tracking-[0.14em] text-pink-700 ${
+                      isNow ? "rounded-full bg-pink-100 px-2.5 py-1" : ""
+                    }`}
+                  >
+                    {h.year}
+                  </div>
+                </div>
+                <ul className="flex list-none flex-col gap-3.5 p-0">
+                  {h.items.map((item, i) => {
+                    const isObj = typeof item !== "string";
+                    return (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-[0.93rem] leading-[1.55] text-ink-soft"
+                      >
+                        <span
+                          className={`mt-[9px] block h-2 w-2 flex-shrink-0 rounded-full ${
+                            isNow ? "bg-pink-500" : "bg-pink-300"
+                          }`}
+                        />
+                        <div className="flex-1">
+                          <span>{isObj ? item.text : item}</span>
+                          {isObj && (
+                            <ul className="mt-2 flex list-none flex-col gap-1.5 border-l border-line pl-4">
+                              {item.sub.map((s, j) => (
+                                <li
+                                  key={j}
+                                  className="text-[0.88rem] text-ink-soft"
+                                >
+                                  {s}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
-  );
-}
-
-interface GoalCardProps {
-  title: string;
-  goals: string[];
-}
-
-function GoalCard({ title, goals }: GoalCardProps) {
-  return (
-    <div className="rounded-lg border bg-card p-6">
-      <h3 className="mb-4 text-xl font-bold text-pink-500">{title}</h3>
-      <ul className="space-y-2 text-gray-500">
-        {goals.map((goal, index) => (
-          <li key={index} className="flex items-start">
-            <span className="mr-2">•</span>
-            <span>{goal}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

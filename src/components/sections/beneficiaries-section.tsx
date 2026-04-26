@@ -1,70 +1,51 @@
 export function BeneficiariesSection() {
   return (
-    <section id="beneficiaries" className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Target Beneficiaries
-            </h2>
-            <p className="mx-auto max-w-3xl text-gray-500 md:text-xl lg:text-lg xl:text-xl">
-              Our initiatives reach diverse populations with a focus on those
-              most vulnerable.
-            </p>
-          </div>
+    <section id="beneficiaries" className="section-pad bg-paper">
+      <div className="wrap">
+        <div className="mx-auto mb-[70px] max-w-[48ch] text-center">
+          <span className="eyebrow">Who we serve</span>
+          <h2 className="mt-4">
+            Reaching those most often{" "}
+            <em className="ital-pink">overlooked.</em>
+          </h2>
+          <p className="mt-4 text-ink-soft">
+            Our programs are designed to find the people facing the steepest
+            barriers — and meet them with the resources they actually need.
+          </p>
         </div>
-        {/* Image Banner */}
-        <div className="mx-auto my-12 max-w-5xl">
-          <div className="relative h-64 overflow-hidden rounded-xl shadow-lg md:h-80">
-            <img
-              src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-              alt="Diverse community members"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 flex items-center bg-gradient-to-r from-pink-500/70 to-transparent">
-              <div className="max-w-md p-8 text-white">
-                <h3 className="mb-2 text-2xl font-bold">
-                  Reaching Those in Need
-                </h3>
-                <p>
-                  Our programs are designed to reach individuals across all
-                  demographics, with special attention to those facing the
-                  greatest barriers to health education and resources.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-          <BeneficiaryCard
-            label="9-17"
-            title="Young Girls in Schools"
-            description="Girls who struggle with accessing menstrual products, which can negatively impact their education."
+
+        <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-6 gap-3.5 max-[1000px]:grid-cols-3 max-[600px]:grid-cols-2">
+          <Tile
+            feature
+            age="Ages 9–17"
+            title="Young girls in schools"
+            body="Girls who miss class, lose confidence, or drop out for lack of menstrual products. Our pad banks and school programs put dignity back on the desk."
           />
-          <BeneficiaryCard
-            label="18-24"
-            title="Young Women"
-            description="Women who face financial barriers to affording menstrual products."
+          <Tile
+            age="Ages 18–24"
+            title="Young women"
+            body="Facing the financial weight of period poverty."
           />
-          <BeneficiaryCard
-            label="Families"
-            title="Low-Income Families"
-            description="Households with limited access to healthcare and educational resources."
+          <Tile
+            age="Households"
+            title="Low-income families"
+            body="Limited access to healthcare and literacy resources."
           />
-          <BeneficiaryCard
-            label="Rural"
-            title="Rural Communities"
-            description="Areas with limited access to healthcare services and educational opportunities."
+          <Tile
+            dark
+            age="Geography"
+            title="Rural communities"
+            body="Remote villages where the nearest clinic is hours away — and where mobile health visits and pad banks have outsized impact."
           />
-          <BeneficiaryCard
-            label="Stigma"
-            title="Affected by Stigma"
-            description="Those dealing with cultural or social stigmas related to menstruation, helping to mitigate isolation and health risks."
+          <Tile
+            age="Cultural barriers"
+            title="Affected by stigma"
+            body="Those isolated by taboos around menstruation and reproductive health."
           />
-          <BeneficiaryCard
-            label="Public"
-            title="General Public"
-            description="Raising awareness and improving health literacy among everyone to foster a more informed and supportive community."
+          <Tile
+            age="Everyone"
+            title="The general public"
+            body="Because health literacy lifts whole communities, not just individuals."
           />
         </div>
       </div>
@@ -72,20 +53,42 @@ export function BeneficiariesSection() {
   );
 }
 
-interface BeneficiaryCardProps {
-  label: string;
+function Tile({
+  age,
+  title,
+  body,
+  feature,
+  dark,
+}: {
+  age: string;
   title: string;
-  description: string;
-}
+  body: string;
+  feature?: boolean;
+  dark?: boolean;
+}) {
+  const base =
+    "relative col-span-2 flex flex-col justify-between overflow-hidden rounded border p-6 transition-all hover:-translate-y-1 max-[600px]:col-span-1";
+  const variant = feature
+    ? "min-[1000px]:col-span-3 min-[1000px]:row-span-2 bg-pink-500 border-pink-500 text-white max-[600px]:col-span-2"
+    : dark
+      ? "min-[1000px]:col-span-3 bg-ink border-ink text-paper max-[600px]:col-span-2"
+      : "bg-paper border-line hover:border-pink-300";
 
-function BeneficiaryCard({ label, title, description }: BeneficiaryCardProps) {
+  const ageColor = feature || dark ? "text-white/80" : "text-pink-700";
+  const titleSize = feature ? "text-[2.2rem] mt-6" : "text-[1.4rem] mt-3";
+  const bodyColor = feature || dark ? "text-white/85" : "text-ink-soft";
+
   return (
-    <div className="flex flex-col items-center space-y-2 p-4">
-      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-pink-100">
-        <span className="text-xl font-bold text-pink-500">{label}</span>
+    <div className={`${base} ${variant}`}>
+      <div>
+        <div
+          className={`mono text-[0.7rem] uppercase tracking-[0.16em] ${ageColor}`}
+        >
+          {age}
+        </div>
+        <h3 className={`serif font-normal ${titleSize}`}>{title}</h3>
       </div>
-      <h3 className="text-xl font-bold">{title}</h3>
-      <p className="text-center text-sm text-gray-500">{description}</p>
+      <p className={`mt-3 text-[0.9rem] ${bodyColor}`}>{body}</p>
     </div>
   );
 }
