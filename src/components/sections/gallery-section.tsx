@@ -2,254 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import type { GalleryGroup, GalleryItem } from "@/lib/gallery";
 
-type Cat = "all" | "outreach" | "workshop" | "video";
-
-type Item = {
-  id: string;
-  cat: Exclude<Cat, "all">;
-  tag: string;
-  title: string;
-  src: string;
-  type: "image" | "video";
-  poster?: string;
-  span?: "tall" | "wide" | "big";
+type GallerySectionProps = {
+  items: GalleryItem[];
+  groups: GalleryGroup[];
 };
 
-const ITEMS: Item[] = [
-  {
-    id: "g1",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "World Malaria Day Outreach — Lagos",
-    src: "/optimized/gallery/IMG_4153.webp",
-    type: "image",
-    span: "big",
-  },
-  {
-    id: "g2",
-    cat: "workshop",
-    tag: "Workshop · 2025",
-    title: "Listening session, Lagos",
-    src: "/optimized/gallery/IMG_3882.webp",
-    type: "image",
-    span: "tall",
-  },
-  {
-    id: "g3",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Distribution day — community visit",
-    src: "/optimized/gallery/IMG_4184.webp",
-    type: "image",
-  },
-  {
-    id: "g4",
-    cat: "video",
-    tag: "Video · field recap",
-    title: "Outreach moments on the ground",
-    src: "/optimized/gallery/video/vid_1487.m4v",
-    poster: "/optimized/gallery/IMG_4153.webp",
-    type: "video",
-  },
-  {
-    id: "g5",
-    cat: "workshop",
-    tag: "Workshop · 2025",
-    title: "School visit — pad bank session",
-    src: "/optimized/gallery/IMG_4248.webp",
-    type: "image",
-    span: "wide",
-  },
-  {
-    id: "g6",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Mobile clinic — registration",
-    src: "/optimized/gallery/IMG_9110.webp",
-    type: "image",
-  },
-  {
-    id: "g7",
-    cat: "workshop",
-    tag: "Workshop · 2024",
-    title: "Community Q&A — Lagos",
-    src: "/optimized/gallery/IMG_9111.webp",
-    type: "image",
-  },
-  {
-    id: "g8",
-    cat: "video",
-    tag: "Video · volunteer day",
-    title: "Volunteer day recap",
-    src: "/optimized/gallery/video/vid_3879.m4v",
-    poster: "/optimized/gallery/IMG_3882.webp",
-    type: "video",
-    span: "tall",
-  },
-  {
-    id: "g9",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Distribution day — neighborhood",
-    src: "/optimized/gallery/IMG_9189.webp",
-    type: "image",
-  },
-  {
-    id: "g10",
-    cat: "workshop",
-    tag: "Workshop · 2025",
-    title: "Partner roundtable — Lagos",
-    src: "/optimized/gallery/IMG_9197.webp",
-    type: "image",
-    span: "wide",
-  },
-  {
-    id: "g11",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Field outreach — Lagos community",
-    src: "/optimized/gallery/IMG_4249.webp",
-    type: "image",
-  },
-  {
-    id: "g12",
-    cat: "workshop",
-    tag: "Workshop · 2024",
-    title: "Education session — schoolgirls",
-    src: "/optimized/gallery/IMG_9198.webp",
-    type: "image",
-  },
-  {
-    id: "g13",
-    cat: "video",
-    tag: "Video · workshop",
-    title: "School workshop — moments",
-    src: "/optimized/gallery/video/vid_1497.m4v",
-    poster: "/optimized/gallery/IMG_4248.webp",
-    type: "video",
-  },
-  {
-    id: "g14",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Group outreach — community",
-    src: "/optimized/gallery/IMG_9207.webp",
-    type: "image",
-  },
-  {
-    id: "g15",
-    cat: "workshop",
-    tag: "Workshop · 2025",
-    title: "Health literacy session",
-    src: "/optimized/gallery/IMG_1539.webp",
-    type: "image",
-  },
-  {
-    id: "g16",
-    cat: "video",
-    tag: "Video · outreach",
-    title: "Outreach in motion",
-    src: "/optimized/gallery/video/vid_3896.m4v",
-    poster: "/optimized/gallery/IMG_9207.webp",
-    type: "video",
-  },
-  {
-    id: "g17",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Market outreach — antimalarial campaign",
-    src: "/optimized/gallery/IMG_1992.webp",
-    type: "image",
-    span: "wide",
-  },
-  {
-    id: "g18",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Volunteer at the field — pink kit",
-    src: "/optimized/gallery/IMG_1616.webp",
-    type: "image",
-    span: "tall",
-  },
-  {
-    id: "g19",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "World Malaria Day — group at the market",
-    src: "/optimized/gallery/wa_01.webp",
-    type: "image",
-    span: "wide",
-  },
-  {
-    id: "g20",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "“I finish my antimalarials” — community pledge",
-    src: "/optimized/gallery/wa_02.webp",
-    type: "image",
-  },
-  {
-    id: "g21",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Mosquito net distribution",
-    src: "/optimized/gallery/wa_03.webp",
-    type: "image",
-  },
-  {
-    id: "g22",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Volunteer with a market trader",
-    src: "/optimized/gallery/wa_04.webp",
-    type: "image",
-  },
-  {
-    id: "g23",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Conversation at the stall",
-    src: "/optimized/gallery/wa_05.webp",
-    type: "image",
-  },
-  {
-    id: "g24",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Family receiving outreach materials",
-    src: "/optimized/gallery/wa_06.webp",
-    type: "image",
-    span: "tall",
-  },
-  {
-    id: "g25",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Volunteer portrait — market outreach",
-    src: "/optimized/gallery/wa_07.webp",
-    type: "image",
-  },
-  {
-    id: "g26",
-    cat: "outreach",
-    tag: "Outreach · 2025",
-    title: "Community member with antimalarial pledge",
-    src: "/optimized/gallery/wa_08.webp",
-    type: "image",
-  },
-];
+export function GallerySection({ items, groups }: GallerySectionProps) {
+  const [filter, setFilter] = useState("all");
+  const [open, setOpen] = useState<GalleryItem | null>(null);
 
-const FILTERS: { key: Cat; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "outreach", label: "Outreaches" },
-  { key: "workshop", label: "Workshops" },
-  { key: "video", label: "Videos" },
-];
-
-export function GallerySection() {
-  const [filter, setFilter] = useState<Cat>("all");
-  const [open, setOpen] = useState<Item | null>(null);
+  const filters = [
+    { key: "all", label: "All" },
+    ...groups.map(({ key, label }) => ({ key, label })),
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -264,8 +31,8 @@ export function GallerySection() {
     };
   }, [open]);
 
-  const visible =
-    filter === "all" ? ITEMS : ITEMS.filter((i) => i.cat === filter);
+  const visibleGroups =
+    filter === "all" ? groups : groups.filter((group) => group.key === filter);
 
   return (
     <section id="gallery" className="section-pad bg-ink text-paper">
@@ -284,7 +51,7 @@ export function GallerySection() {
             partner communities.
           </p>
           <div className="flex flex-wrap gap-2">
-            {FILTERS.map((f) => (
+            {filters.map((f) => (
               <button
                 key={f.key}
                 type="button"
@@ -301,65 +68,90 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div className="grid auto-rows-[200px] grid-cols-4 gap-3.5 max-[900px]:grid-cols-2">
-          {visible.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setOpen(item)}
-              className={`group relative cursor-pointer overflow-hidden rounded-[3px] bg-paper-2 ${
-                item.span === "tall"
-                  ? "row-span-2"
-                  : item.span === "wide"
-                    ? "col-span-2"
-                    : item.span === "big"
-                      ? "col-span-2 row-span-2"
-                      : ""
-              }`}
-            >
-              {item.type === "image" ? (
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 900px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
-                />
-              ) : (
-                <video
-                  src={item.src}
-                  poster={item.poster}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
-                  muted
-                  playsInline
-                  preload="none"
-                />
-              )}
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 bg-gradient-to-t from-black/75 to-transparent p-[18px] text-left text-white">
-                <div>
-                  <div className="mono text-[0.65rem] uppercase tracking-[0.14em] text-white/80">
-                    {item.tag}
-                  </div>
-                  <div className="serif mt-1 text-[1rem] leading-tight">
-                    {item.title}
-                  </div>
-                </div>
-                {item.type === "video" && (
-                  <div className="grid h-[42px] w-[42px] flex-shrink-0 place-items-center rounded-full border border-white/50 bg-white/25 text-white backdrop-blur">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      style={{ marginLeft: 2 }}
-                    >
-                      <polygon points="6,4 20,12 6,20" />
-                    </svg>
+        <div className="space-y-14">
+          {visibleGroups.map((group) => {
+            const groupItems = items.filter(
+              (item) => item.campaign === group.key,
+            );
+
+            return (
+              <div key={group.key}>
+                {filter === "all" && (
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-4 border-t border-paper/15 pt-7">
+                    <div>
+                      <h3 className="serif text-[clamp(1.45rem,2.4vw,2rem)] leading-tight text-paper">
+                        {group.label}
+                      </h3>
+                      <p className="mt-2 max-w-[52ch] text-sm leading-relaxed text-paper/65">
+                        {group.description}
+                      </p>
+                    </div>
                   </div>
                 )}
+
+                <div className="grid auto-rows-[200px] grid-cols-4 gap-3.5 max-[900px]:grid-cols-2">
+                  {groupItems.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setOpen(item)}
+                      className={`group relative cursor-pointer overflow-hidden rounded-[3px] bg-paper-2 ${
+                        item.span === "tall"
+                          ? "row-span-2"
+                          : item.span === "wide"
+                            ? "col-span-2"
+                            : item.span === "big"
+                              ? "col-span-2 row-span-2"
+                              : ""
+                      }`}
+                    >
+                      {item.type === "image" ? (
+                        <Image
+                          src={item.src}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 900px) 50vw, 25vw"
+                          className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
+                        />
+                      ) : (
+                        <video
+                          src={item.src}
+                          poster={item.poster}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
+                          muted
+                          playsInline
+                          preload="none"
+                        />
+                      )}
+                      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 bg-gradient-to-t from-black/75 to-transparent p-[18px] text-left text-white">
+                        <div>
+                          <div className="mono text-[0.65rem] uppercase tracking-[0.14em] text-white/80">
+                            {item.tag}
+                          </div>
+                          <div className="serif mt-1 text-[1rem] leading-tight">
+                            {item.title}
+                          </div>
+                        </div>
+                        {item.type === "video" && (
+                          <div className="grid h-[42px] w-[42px] flex-shrink-0 place-items-center rounded-full border border-white/50 bg-white/25 text-white backdrop-blur">
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              style={{ marginLeft: 2 }}
+                            >
+                              <polygon points="6,4 20,12 6,20" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </button>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-10 text-center">

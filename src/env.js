@@ -8,6 +8,9 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    AIRTABLE_TOKEN: z.string().optional(),
+    AIRTABLE_BASE_ID: z.string().optional(),
+    AIRTABLE_GALLERY_TABLE: z.string().optional(),
   },
 
   /**
@@ -25,6 +28,9 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    AIRTABLE_TOKEN: process.env.AIRTABLE_TOKEN,
+    AIRTABLE_BASE_ID: process.env.AIRTABLE_BASE_ID,
+    AIRTABLE_GALLERY_TABLE: process.env.AIRTABLE_GALLERY_TABLE,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

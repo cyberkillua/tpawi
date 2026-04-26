@@ -11,8 +11,12 @@ import { GoalsSection } from "@/components/sections/goals-section";
 import { CalendarSection } from "@/components/sections/calendar-section";
 import { GetInvolvedSection } from "@/components/sections/get-involved-section";
 import { DonateSection } from "@/components/sections/donate-section";
+import { buildGalleryGroups, getGalleryItems } from "@/lib/gallery";
 
-export default function Home() {
+export default async function Home() {
+  const galleryItems = await getGalleryItems();
+  const galleryGroups = buildGalleryGroups(galleryItems);
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -22,7 +26,7 @@ export default function Home() {
         <AboutSection />
         <ProgramsSection />
         <BeneficiariesSection />
-        <GallerySection />
+        <GallerySection items={galleryItems} groups={galleryGroups} />
         <TeamSection />
         <GoalsSection />
         <CalendarSection />

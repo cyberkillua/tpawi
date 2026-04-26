@@ -55,7 +55,7 @@ export function TeamSection() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[4px]">
             <Image
               src="/optimized/team/suu.webp"
-              alt="Surajah Surajudeen-Bakinde, Founder & Executive Director"
+              alt="Surajah Surajudeen-Bakinde, Founder & Managing Director"
               fill
               sizes="(max-width: 880px) 100vw, 48vw"
               className="absolute inset-0 h-full w-full object-cover"
@@ -66,15 +66,29 @@ export function TeamSection() {
           </div>
           <div>
             <div className="serif text-[clamp(1.5rem,2.4vw,2.1rem)] italic leading-[1.3] text-ink">
-              <span className="not-italic text-pink-500" style={{ fontSize: "1.5em", lineHeight: 0, verticalAlign: "-0.2em" }}>
+              <span
+                className="not-italic text-pink-500"
+                style={{
+                  fontSize: "1.5em",
+                  lineHeight: 0,
+                  verticalAlign: "-0.2em",
+                }}
+              >
                 “
               </span>
-              I created TPAWI from a belief that many health challenges in
-              our communities are driven by poor health literacy and
-              preventable misconceptions. At its core, TPAWI exists to make
-              health information accessible and practical, bridging the gap
-              between knowledge and better health outcomes for all.
-              <span className="not-italic text-pink-500" style={{ fontSize: "1.5em", lineHeight: 0, verticalAlign: "-0.2em" }}>
+              I created TPAWI from a belief that many health challenges in our
+              communities are driven by poor health literacy and preventable
+              misconceptions. At its core, TPAWI exists to make health
+              information accessible and practical, bridging the gap between
+              knowledge and better health outcomes for all.
+              <span
+                className="not-italic text-pink-500"
+                style={{
+                  fontSize: "1.5em",
+                  lineHeight: 0,
+                  verticalAlign: "-0.2em",
+                }}
+              >
                 ”
               </span>
             </div>
@@ -86,11 +100,12 @@ export function TeamSection() {
                 Founder &amp; Executive Director
               </div>
               <p className="mt-5 leading-[1.7] text-ink-soft">
-                A public health advocate with a background in community
-                organizing and program design. Surajah leads strategy,
-                partnerships, and the long-range vision for the Initiative —
-                building the kind of infrastructure that outlasts any one
-                campaign.
+                Surajah Surajudeen-Bakinde is a Pharmacist and Public Health
+                Advocate with an MBA/MPH in view. She founded TPAWI and leads
+                its vision, strategy, and partnerships, with a focus on building
+                sustainable systems for health education, research, and
+                community-driven impact across underserved communities in
+                Nigeria.
               </p>
             </div>
           </div>
