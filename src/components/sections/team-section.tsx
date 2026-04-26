@@ -97,7 +97,7 @@ export function TeamSection() {
                 Surajah Surajudeen-Bakinde
               </div>
               <div className="mono mt-1.5 text-[0.74rem] uppercase tracking-[0.16em] text-pink-700">
-                Founder &amp; Executive Director
+                Founder &amp; Managing Director
               </div>
               <p className="mt-5 leading-[1.7] text-ink-soft">
                 Surajah Surajudeen-Bakinde is a Pharmacist and Public Health
