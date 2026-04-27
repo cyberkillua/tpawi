@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { DonationModal } from "@/components/donation-modal";
@@ -19,6 +19,20 @@ export function Header() {
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const openDonationModal = () => {
+    setMobileOpen(false);
+    setDonationModalOpen(true);
+  };
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   return (
     <>
       <header
@@ -28,21 +42,25 @@ export function Header() {
           borderColor: "color-mix(in oklab, var(--line) 70%, transparent)",
         }}
       >
-        <div className="wrap flex h-[72px] items-center justify-between">
-          <Link href="#top" className="flex items-center gap-3 text-ink">
+        <div className="wrap flex h-[68px] items-center justify-between gap-3 min-[880px]:h-[72px]">
+          <Link
+            href="#top"
+            className="flex min-w-0 items-center gap-2.5 text-ink min-[420px]:gap-3"
+            onClick={() => setMobileOpen(false)}
+          >
             <Image
               src="/logo.png"
               alt="The Pink & White Initiative"
               width={36}
               height={36}
-              className="h-9 w-9 object-contain"
+              className="h-9 w-9 flex-shrink-0 object-contain"
               priority
             />
-            <span className="flex flex-col leading-none">
-              <span className="serif text-[1.1rem] tracking-tight">
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="serif truncate text-[1rem] tracking-tight min-[420px]:text-[1.1rem]">
                 Pink &amp; White
               </span>
-              <span className="mono mt-[3px] text-[0.62rem] uppercase tracking-[0.18em] text-ink-mute">
+              <span className="mono mt-[3px] hidden text-[0.62rem] uppercase tracking-[0.18em] text-ink-mute min-[420px]:block">
                 Initiative · Est. 2024
               </span>
             </span>
@@ -64,8 +82,8 @@ export function Header() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => setDonationModalOpen(true)}
-              className="btn"
+              onClick={openDonationModal}
+              className="btn px-4 py-2.5 text-[0.82rem] max-[360px]:hidden min-[880px]:px-[22px] min-[880px]:py-[11px] min-[880px]:text-[0.88rem]"
             >
               Donate
               <svg
@@ -82,9 +100,11 @@ export function Header() {
 
             <button
               type="button"
-              className="grid h-9 w-9 place-items-center rounded-full border border-ink/20 min-[880px]:hidden"
+              className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full border border-ink/20 text-ink transition-colors hover:border-pink-500 hover:text-pink-700 min-[880px]:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                 {mobileOpen ? (
@@ -105,18 +125,28 @@ export function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="border-t border-line bg-paper min-[880px]:hidden">
-            <nav className="wrap flex flex-col gap-1 py-4">
+          <div
+            id="mobile-navigation"
+            className="border-t border-line bg-paper shadow-[0_18px_40px_-28px_rgba(26,16,16,0.45)] min-[880px]:hidden"
+          >
+            <nav className="wrap flex flex-col py-3">
               {NAV.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-2 text-[0.95rem] text-ink-soft hover:text-ink"
+                  className="border-b border-line/70 py-3.5 text-[1rem] text-ink-soft transition-colors last:border-b-0 hover:text-ink"
                 >
                   {item.label}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={openDonationModal}
+                className="btn mt-4 justify-center min-[360px]:hidden"
+              >
+                Donate
+              </button>
             </nav>
           </div>
         )}
